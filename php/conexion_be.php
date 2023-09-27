@@ -9,7 +9,7 @@
     $username = "master";
     $password = "Somoskudasai17";
 
-    require_once 'vendor/autoload.php';
+   
 
 // Crear una instancia del controlador
 $conn = new PDO("sqlsrv:Server=$server;Database=$database", $username, $password);
