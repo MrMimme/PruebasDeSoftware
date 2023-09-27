@@ -2,23 +2,20 @@
     /*$conexion=mysqli_connect("bd-pruebasdesoftware.database.windows.net","master","Somoskudasai17","bd_Electronica");  
     mysqli_set_charset($conexion, "utf8");
     */
-    $serverName = "bd-pruebasdesoftware.database.windows.net";
-    $connectionOptions = array(
-        "Database" => "bd_Electronica",
-        "Uid" => "master",
-        "PWD" => "Somoskudasai17"
-    );
+    $host = 'bd-pruebasdesoftware.database.windows.net';
+    $username = 'master';
+    $password = 'Somoskudasai17';
+    $db_name = 'bd_Electronica';
     
-    // Establece la conexión
-    $conn = sqlsrv_connect($serverName, $connectionOptions);
+    //Initializes MySQLi
+    $conn = mysqli_init();
+    // Establish the connection
+    mysqli_real_connect($conn, $host, $username, $password, $db_name);
     
-    if ($conn === false) {
-        die(print_r(sqlsrv_errors(), true));
+    //If connection failed, show the error
+    if (mysqli_connect_errno())
+    {
+        die('Failed to connect to MySQL: '.mysqli_connect_error());
     }
-    
-    // Realiza consultas, operaciones, etc., con la conexión $conn
-    
-    // Cierra la conexión
-    sqlsrv_close($conn);
 
 ?>
