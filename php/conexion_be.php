@@ -1,5 +1,5 @@
 <?php
-    $conexion=mysqli_connect("db","root","secret","bd_usuario");  
+    $conexion=mysqli_connect("bd-pruebasdesoftware.database.windows.net","master","Somoskudasai17","bd_Electronica");  
     mysqli_set_charset($conexion, "utf8");
 
     
