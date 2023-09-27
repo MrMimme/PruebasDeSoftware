@@ -14,6 +14,5 @@
 // Crear una instancia del controlador
 $conn = new PDO("sqlsrv:Server=$server;Database=$database", $username, $password);
 
-// Mostrar un mensaje de éxito
-echo "Conexión exitosa";
+
 ?>
