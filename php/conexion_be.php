@@ -1,22 +1,25 @@
 <?php
-    $conexion=mysqli_connect("bd-pruebasdesoftware.database.windows.net","master","Somoskudasai17","bd_Electronica");  
+    /*$conexion=mysqli_connect("bd-pruebasdesoftware.database.windows.net","master","Somoskudasai17","bd_Electronica");  
     mysqli_set_charset($conexion, "utf8");
+    */
 
-    
-/*$servidor = "localhost";
-$usuario = "root";
-$contrasena = "test";
-$base_de_datos = "bd_usuario";
+    $host = 'bd-pruebasdesoftware.database.windows.net';
+$username = 'master';
+$password = 'Somoskudasai17';
+$db_name = 'bd_Electronica';
 
-try {
-    // Crear una instancia de PDO
-    $conexion = new PDO("mysql:host=$servidor;dbname=$base_de_datos;charset=utf8", $usuario, $contrasena);
+//Initializes MySQLi
+$conn = mysqli_init();
 
-    // Configurar el manejo de errores para PDO
-    $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("Error de conexión: " . $e->getMessage());
+mysqli_ssl_set($conn,NULL,NULL, "/var/www/html/DigiCertGlobalRootG2.crt.pem", NULL, NULL);
+
+// Establish the connection
+mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, NULL, MYSQLI_CLIENT_SSL);
+
+//If connection failed, show the error
+if (mysqli_connect_errno())
+{
+    die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
 
-    */
 ?>
