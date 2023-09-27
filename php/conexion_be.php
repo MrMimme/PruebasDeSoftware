@@ -2,20 +2,18 @@
     /*$conexion=mysqli_connect("bd-pruebasdesoftware.database.windows.net","master","Somoskudasai17","bd_Electronica");  
     mysqli_set_charset($conexion, "utf8");
     */
-    $host = 'bd-pruebasdesoftware.database.windows.net';
-    $username = 'master';
-    $password = 'Somoskudasai17';
-    $db_name = 'bd_Electronica';
-    
-    //Initializes MySQLi
-    $conn = mysqli_init();
-    // Establish the connection
-    mysqli_real_connect($conn, $host, $username, $password, $db_name);
-    
-    //If connection failed, show the error
-    if (mysqli_connect_errno())
-    {
-        die('Failed to connect to MySQL: '.mysqli_connect_error());
-    }
+    // Importar el controlador de PHP para SQL Server
 
+    $server = "bd-pruebasdesoftware.database.windows.net";
+    $database = "bd_Electronica";
+    $username = "master";
+    $password = "Somoskudasai17";
+
+    require_once 'vendor/autoload.php';
+
+// Crear una instancia del controlador
+$conn = new PDO("sqlsrv:Server=$server;Database=$database", $username, $password);
+
+// Mostrar un mensaje de éxito
+echo "Conexión exitosa";
 ?>
