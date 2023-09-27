@@ -1,5 +1,18 @@
 <?php
-$conexion=mysqli_connect("bd-pruebasdesoftware.database.windows.net","master","Somoskudasai17","bd_Electronica", array(
-        'tls_version' => 'TLSv1.2'
-    ));
+// DB CREDENCIALES DE USUARIO.
+define('DB_HOST','bd-pruebasdesoftware.database.windows.net');
+define('DB_USER','master');
+define('DB_PASS','Somoskudasai17');
+define('DB_NAME','bd_Electronica');
+// Ahora, establecemos la conexión.
+try
+{
+// Ejecutamos las variables y aplicamos UTF8
+$connect = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME,DB_USER, DB_PASS,
+array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
+}
+catch (PDOException $e)
+{
+exit("Error: " . $e->getMessage());
+}
 ?>
