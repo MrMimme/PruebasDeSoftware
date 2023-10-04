@@ -1,22 +1,22 @@
 <?php
-    $conexion=mysqli_connect("pruebas-de-software.mysql.database.azure.com","master","Somoskudasai17","bd_Electronica");  
-    mysqli_set_charset($conexion, "utf8");
 
+    // Define las variables de conexión a la base de datos
+    $hostname = "pruebas-de-software.mysql.database.azure.com";
+    $username = "master";
+    $password = "Somoskudasai17";
+    $database = "bd_Electronica";
     
-/*$servidor = "localhost";
-$usuario = "root";
-$contrasena = "test";
-$base_de_datos = "bd_usuario";
-
-try {
-    // Crear una instancia de PDO
-    $conexion = new PDO("mysql:host=$servidor;dbname=$base_de_datos;charset=utf8", $usuario, $contrasena);
-
-    // Configurar el manejo de errores para PDO
-    $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("Error de conexión: " . $e->getMessage());
-}
-
-    */
+    // Realiza la conexión a la base de datos
+    $conn = mysqli_connect($hostname, $username, $password, $database);
+    
+    // Comprueba si la conexión es correcta
+    if (!$conn) {
+      die("Error al conectarse a la base de datos: " . mysqli_connect_error());
+    }
+    
+  
+    // Cierra la conexión a la base de datos
+    mysqli_close($conn);
+    
+  
 ?>
