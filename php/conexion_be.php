@@ -1,22 +1,23 @@
 <?php
 
-$host = 'pruebas-de-software.mysql.database.azure.com';
-$username = 'master';
-$password = 'Somoskudasai17';
-$db_name = 'bd_Electronica';
+define('DB_HOST','pruebas-de-software.mysql.database.azure.com');
+define('DB_USER','master');
+define('DB_PASS','Somoskudasai17');
+define('DB_NAME','bd_Electronica');
 
-//Initializes MySQLi
-$conn = mysqli_init();
-
-mysqli_ssl_set($conn,NULL,NULL, "/var/www/html/DigiCertGlobalRootG2.crt.pem", NULL, NULL);
-
-// Establish the connection
-mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, NULL, MYSQLI_CLIENT_SSL);
-
-//If connection failed, show the error
-if (mysqli_connect_errno())
-{
-    die('Failed to connect to MySQL: '.mysqli_connect_error());
+$options = array(
+    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'",
+    PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => true, // Puedes configurar esto según tus necesidades de seguridad.
+    'ssl_version' => 'TLSv1.2' // Especifica la versión de TLS aquí
+);
+try{
+    $connect = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME,DB_USER, DB_PASS, $options);
+    echo "Conexión exitosa";
 }
-  
+catch(PDOException $e){
+    exit("Error: " . $e->getMessage());
+}
+
+
+
 ?>
