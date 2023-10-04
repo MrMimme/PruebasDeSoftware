@@ -1,21 +1,29 @@
 <?php
+/*
+// Define las variables de conexión a la base de datos
+$hostname = "pruebas-de-software.mysql.database.azure.com";
+$username = "master";
+$password = "Somoskudasai17";
+$database = "bd_Electronica";
 
-define('DB_HOST', 'pruebas-de-software.mysql.database.azure.com');
-define('DB_USER', 'master');
-define('DB_PASS', 'Somoskudasai17');
-define('DB_NAME', 'bd_Electronica');
+// Realiza la conexión a la base de datos
+$conn = mysqli_init();
+mysqli_ssl_set($conn, NULL, NULL, "ssl/DigiCertGlobalRootG2.crt.pem", NULL, NULL);
+mysqli_real_connect($conn, $hostname, $username, $password, $database, 3306, MYSQLI_CLIENT_SSL) or die("Error al conectar" . mysqli_error());
 
-$options = array(
-    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'",
-    PDO::MYSQL_ATTR_SSL_CA => '/ssl/DigiCertGlobalRootG2.crt.pem',  // Ruta al archivo de certificado de CA
-    PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => true,  // Verificar certificado del servidor
-    'ssl_version' => 'TLSv1.2'
-);
-
-try {
-    $connect = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASS, $options);
-    echo "Conexión exitosa";
-} catch (PDOException $e) {
-    exit("Error: " . $e->getMessage());
+// Comprueba si la conexión es correcta
+if (!$conn) {
+  die("Error al conectarse a la base de datos: " . mysqli_connect_error());
 }
+
+// Cierra la conexión a la base de datos
+mysqli_close($conn);*/
+
+
+$conexion=mysqli_init();
+mysqli_ssl_set($conexion,NULL,NULL,"ssl/DigiCertGlobalRootG2.crt.pem",NULL,NULL);
+mysqli_real_connect($conexion, "pruebas-de-software.mysql.database.azure.com","master","Somoskudasai17","bd_Electronica",3306,
+      MYSQLI_CLIENT_SSL) or die ("Error al conectar");
 ?>
+
+
