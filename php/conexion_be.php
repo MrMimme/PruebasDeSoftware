@@ -1,23 +1,22 @@
 <?php
+    $conexion=mysqli_connect("pruebas-de-software.mysql.database.azure.com","master","Somoskudasai17","bd_Electronica");  
+    mysqli_set_charset($conexion, "utf8");
 
-define('DB_HOST','pruebas-de-software.mysql.database.azure.com');
-define('DB_USER','master');
-define('DB_PASS','Somoskudasai17');
-define('DB_NAME','bd_Electronica');
+    
+/*$servidor = "localhost";
+$usuario = "root";
+$contrasena = "test";
+$base_de_datos = "bd_usuario";
 
-$options = array(
-    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'",
-    PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false, // Puedes configurar esto según tus necesidades de seguridad.
-    'ssl_version' => 'TLSv1.2' // Especifica la versión de TLS aquí
-);
-try{
-    $connect = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME,DB_USER, DB_PASS, $options);
-    echo "Conexión exitosa";
+try {
+    // Crear una instancia de PDO
+    $conexion = new PDO("mysql:host=$servidor;dbname=$base_de_datos;charset=utf8", $usuario, $contrasena);
+
+    // Configurar el manejo de errores para PDO
+    $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Error de conexión: " . $e->getMessage());
 }
-catch(PDOException $e){
-    exit("Error: " . $e->getMessage());
-}
 
-
-
+    */
 ?>
