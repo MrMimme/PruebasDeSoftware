@@ -56,13 +56,13 @@ try {
         
 
         $_SESSION['Usuario'] = $corrreo;
-        header("location: ../DiacoInicio.php");
+        header("location: ../DiacoInicio.html");
         exit;
     }else{
         echo '
                 <script>
                     alert("Usuario no existe por favor verifique los datos introduciodos");
-                    window.location = "../index.php";
+                    window.location = "../index.html";
                 </script>    
         ';
         exit;
