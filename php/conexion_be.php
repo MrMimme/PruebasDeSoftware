@@ -1,22 +1,22 @@
 <?php
 
-    // Define las variables de conexión a la base de datos
-    $hostname = "pruebas-de-software.mysql.database.azure.com";
-    $username = "master";
-    $password = "Somoskudasai17";
-    $database = "bd_Electronica";
-    
-    // Realiza la conexión a la base de datos
-    $conn = mysqli_connect($hostname, $username, $password, $database);
-    
-    // Comprueba si la conexión es correcta
-    if (!$conn) {
-      die("Error al conectarse a la base de datos: " . mysqli_connect_error());
-    }
-    
-  
-    // Cierra la conexión a la base de datos
-    mysqli_close($conn);
-    
+$host = 'pruebas-de-software.mysql.database.azure.com';
+$username = 'master';
+$password = 'Somoskudasai17';
+$db_name = 'bd_Electronica';
+
+//Initializes MySQLi
+$conn = mysqli_init();
+
+mysqli_ssl_set($conn,NULL,NULL, "/var/www/html/DigiCertGlobalRootG2.crt.pem", NULL, NULL);
+
+// Establish the connection
+mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, NULL, MYSQLI_CLIENT_SSL);
+
+//If connection failed, show the error
+if (mysqli_connect_errno())
+{
+    die('Failed to connect to MySQL: '.mysqli_connect_error());
+}
   
 ?>
