@@ -1,6 +1,6 @@
 <?php
 
-define('DB_HOST','bd-pruebasdesoftware.database.windows.net');
+define('DB_HOST','pruebas-de-software.mysql.database.azure.com');
 define('DB_USER','master');
 define('DB_PASS','Somoskudasai17');
 define('DB_NAME','bd_Electronica');
