@@ -56,7 +56,7 @@ try {
         
 
         $_SESSION['Usuario'] = $corrreo;
-        header("location: ../DiacoInicio.html");
+        header("location: ../HomePage.html");
         exit;
     }else{
         echo '
