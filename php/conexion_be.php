@@ -1,6 +1,6 @@
 <?php
 
-
+/*
 // Define las variables de conexión a la base de datos
 $hostname = "electronicosymas.azurewebsites.net";
 $username = "master";
@@ -19,14 +19,14 @@ if (!$conn) {
 
 // Cierra la conexión a la base de datos
 mysqli_close($conn);
+*/
 
 
-/*
 $conexion=mysqli_init();
 mysqli_ssl_set($conexion,NULL,NULL,"../ssl/BaltimoreCyberTrustRoot.crt.pem",NULL,NULL);
-mysqli_real_connect($conexion, "pruebas-de-software.mysql.database.azure.com","master","Somoskudasai17","bd_electronica",3306,
+mysqli_real_connect($conexion, "electronicosymas.azurewebsites.net","master","Somoskudasai17","bd_electronica",3306,
       MYSQLI_CLIENT_SSL) or die ("Error al conectar" . mysqli_error($conexion));
-*/
+
 
 /*
 $conexion=mysqli_connect("localhost","root","","bd_electronica");  
